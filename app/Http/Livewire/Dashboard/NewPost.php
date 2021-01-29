@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Dashboard;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 
+use App\Events\NewPostEvent;
 use App\Models\Post;
 
 class NewPost extends Component
@@ -26,7 +27,8 @@ class NewPost extends Component
             'user_id' => Auth::id()
         ]);
 
-        $this->emit('new_post');
+        // $this->emit('new_post');
+        event(new NewPostEvent);
         $this->reset();
     }
 

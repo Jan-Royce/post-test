@@ -4,13 +4,15 @@ namespace App\Http\Livewire\Dashboard;
 
 use Livewire\Component;
 
+use App\Events\NewPostEvent;
 use App\Models\Post;
 
 class PostList extends Component
 {
     public $posts;
     protected $listeners = [
-        'new_post' => 'render'
+        'new_post' => 'render',
+        'echo:new-post,NewPostEvent' => 'render'
     ];
 
     public function mount()
