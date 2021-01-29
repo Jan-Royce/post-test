@@ -58,4 +58,10 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getProfilePhotoPath()
+    {
+        $path = $this->profile_photo_path ?? 'img/default.jpg';
+        return asset($path);
+    }
 }

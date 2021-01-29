@@ -27,7 +27,6 @@ class NewPost extends Component
             'user_id' => Auth::id()
         ]);
 
-        // $this->emit('new_post');
         event(new NewPostEvent);
         $this->reset();
     }
